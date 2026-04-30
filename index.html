@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GRADUACIÓN | TEC METEPEC 2026</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Alata&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-black: #000000;
+            --bg-gray: #232323;
+            --ivory: #FEFFE3; 
+            --silver-text: #C0C0C2;
+            --white: #ffffff;
+            --transition-smooth: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* --- ARQUITECTURA BASE --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body { 
+            background: linear-gradient(180deg, var(--bg-black) 0%, var(--bg-gray) 69%);
+            background-attachment: fixed;
+            font-family: 'Inter', sans-serif;
+            color: var(--ivory); 
+            line-height: 1.8; 
+            overflow-x: hidden;
+            position: relative;
+            min-height: 100vh;
+        }
+
+        /* Fondo inmersivo */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: url('back.jpg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.25; 
+            z-index: -2;
+        }
+
+        /* --- TRAZADOS DECORATIVOS --- */
+        .decor-layer {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .square-pair {
+            position: absolute;
+            display: flex;
+            gap: 20px;
+            opacity: 0.15;
+        }
+
+        .rounded-square {
+            width: 250px;
+            height: 250px;
+            border: 1px solid var(--ivory);
+            border-radius: 300px; 
+        }
+
+        .pos-1 { top: 10%; left: -50px; transform: rotate(15deg); }
+        .pos-2 { top: 40%; right: -100px; transform: rotate(-20deg); }
+        .pos-3 { bottom: 15%; left: 15%; transform: rotate(45deg); }
+        .pos-4 { top: 70%; left: 60%; transform: rotate(-10deg); }
+
+        /* --- TIPOGRAFÍA --- */
+        h1, h2, h3 {
+            font-family: 'Alata', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: normal;
+            color: var(--ivory);
+        }
+
+        /* --- ANIMACIONES --- */
+        @keyframes reveal {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .reveal-node { opacity: 0; animation: reveal 1.5s ease forwards; }
+
+        /* --- PORTADA --- */
+        header {
+            position: relative;
+            min-height: 100vh;
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            text-align: center;
+            padding: 40px;
+        }
+
+        .hero-vignette {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle, transparent 20%, var(--bg-black) 100%);
+            z-index: 1;
+        }
+
+        header div:last-child { position: relative; z-index: 10; max-width: 900px; }
+        header h1 { font-size: clamp(2.5rem, 9vw, 4.8rem); margin-bottom: 5px; }
+        header p { font-size: 1.1rem; letter-spacing: 10px; color: var(--silver-text); font-weight: 300; margin-top: 20px; }
+        header hr { width: 100px; height: 1px; border: none; background: var(--ivory); margin: 30px auto; opacity: 0.5; }
+
+        /* --- CONTENIDO PRINCIPAL --- */
+        main {
+            position: relative;
+            padding: 100px 20px;
+            text-align: center;
+            z-index: 100;
+        }
+
+        .intro-block { 
+            max-width: 800px; 
+            margin: 0 auto 80px; 
+            font-size: 1.3rem; 
+            font-weight: 300; 
+            line-height: 2.2; 
+        }
+        
+        .date-display {
+            display: inline-flex;
+            gap: 40px;
+            font-size: clamp(2.5rem, 11vw, 5rem);
+            padding: 30px 70px;
+            margin-bottom: 110px;
+            border-top: 1px solid rgba(254, 255, 227, 0.3);
+            border-bottom: 1px solid rgba(254, 255, 227, 0.3);
+        }
+
+        /* --- UBICACIÓN --- */
+        .location-box {
+            max-width: 850px;
+            margin: 0 auto 130px;
+        }
+        .location-box h3 { font-size: 2.4rem; margin-bottom: 20px; }
+        .location-box p { font-size: 1.2rem; margin-bottom: 45px; color: var(--silver-text); }
+
+        .btn-ivory {
+            display: inline-block;
+            padding: 22px 70px;
+            border: 1px solid var(--ivory);
+            color: var(--ivory);
+            text-decoration: none;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            transition: var(--transition-smooth);
+        }
+        .btn-ivory:hover { background: var(--ivory); color: var(--bg-black); }
+
+        /* --- ITINERARIO UNIFORME --- */
+        .timeline-container {
+            max-width: 750px;
+            margin: 140px auto;
+            padding: 0 20px;
+        }
+        .timeline-container h3 { font-size: 2.8rem; margin-bottom: 80px; text-align: center; }
+
+        .timeline-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 22px 0;
+            border-bottom: 1px solid rgba(254, 255, 227, 0.1);
+        }
+
+        .timeline-row span:first-child { 
+            font-weight: 600; 
+            color: var(--ivory); 
+            min-width: 120px; 
+            text-align: left; 
+            font-family: 'Alata', sans-serif;
+        }
+        .timeline-row span:last-child { text-align: right; font-weight: 300; font-size: 1.1rem; color: var(--white); }
+
+        /* --- RECOMENDACIONES --- */
+        .recs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            padding: 100px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .rec-item {
+            padding: 50px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(254, 255, 227, 0.1);
+            text-align: left;
+        }
+        .rec-item strong { display: block; margin-bottom: 15px; font-family: 'Alata', sans-serif; text-transform: uppercase; font-size: 1.1rem; color: var(--ivory); }
+        .rec-item p { font-size: 0.95rem; font-weight: 300; color: var(--silver-text); }
+
+        /* --- AUDIO --- */
+        #music-btn {
+            position: fixed; bottom: 40px; right: 40px; width: 75px; height: 75px;
+            border-radius: 50%; z-index: 5000; border: 1px solid var(--ivory);
+            background: rgba(0, 0, 0, 0.8); cursor: pointer;
+            display: flex; align-items: center; justify-content: center; font-size: 1.8rem;
+            transition: var(--transition-smooth); color: var(--ivory);
+            backdrop-filter: blur(8px);
+        }
+
+        footer { padding: 120px 20px; text-align: center; border-top: 1px solid rgba(254, 255, 227, 0.05); }
+
+        @media (max-width: 768px) {
+            .date-display { gap: 20px; padding: 25px 40px; }
+            .square-pair { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="decor-layer">
+        <div class="square-pair pos-1"><div class="rounded-square"></div><div class="rounded-square"></div></div>
+        <div class="square-pair pos-2"><div class="rounded-square"></div><div class="rounded-square"></div></div>
+        <div class="square-pair pos-3"><div class="rounded-square"></div><div class="rounded-square"></div></div>
+        <div class="square-pair pos-4"><div class="rounded-square"></div><div class="rounded-square"></div></div>
+    </div>
+
+    <audio id="gradAudio" loop preload="auto">
+        <source src="free fall.m4a" type="audio/mp4">
+    </audio>
+    <button id="music-btn" onclick="gestionarMusica()">🔇</button>
+
+    <header>
+        <div class="hero-vignette"></div>
+        <div class="reveal-node">
+            <h1>TEC METEPEC</h1>
+            <hr>
+            <p>GENERACIÓN 2021 - 2026</p>
+        </div>
+    </header>
+
+    <main>
+        <div class="intro-block reveal-node">
+            "Bajo la magia de una noche que quedará grabada en nuestra memoria, celebramos el cierre de un ciclo de esfuerzo y el comienzo de una nueva historia profesional."
+        </div>
+
+        <div class="date-display reveal-node">
+            <span>23</span> <span>05</span> <span>26</span>
+        </div>
+
+        <div class="location-box reveal-node">
+            <h3>RECEPCIÓN</h3>
+            <p>C5 <br>Estado de México</p>
+            <a href="https://www.google.com/maps/place/C5+Toluca:+Centro+De+Control,+Comando,+Comunicacion,+Computo+y+Calidad./@19.3039562,-99.5609073,12z/data=!4m10!1m2!2m1!1sc5!3m6!1s0x85cd8abb452d0e77:0x565943eac145ba16!8m2!3d19.3039562!4d-99.5609073!15sCgJjNZIBG2RlcGFydG1lbnRfb2ZfcHVibGljX3NhZmV0eeABAA!16s%2Fg%2F11cn5qjff8?entry=ttu&g_ep=EgoyMDI2MDQyNy4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="btn-ivory">Ver Ubicación</a>
+        </div>
+
+        <article class="timeline-container reveal-node">
+            <h3>Itinerario</h3>
+            <div class="timeline-row"><span>07:30 PM</span><span>RECEPCIÓN</span></div>
+            <div class="timeline-row"><span>08:00 PM</span><span>SAX</span></div>
+            <div class="timeline-row"><span>09:00 PM</span><span>CENA / FAMILIA VIOLINISTA</span></div>
+            <div class="timeline-row"><span>10:30 PM</span><span>PALABRAS</span></div>
+            <div class="timeline-row"><span>10:35 PM</span><span>BRINDIS</span></div>
+            <div class="timeline-row"><span>10:40 PM</span><span>SE ABRE PISTA</span></div>
+            <div class="timeline-row"><span>11:00 PM</span><span>CABINA 360° / INFLABLE</span></div>
+            <div class="timeline-row"><span>11:30 PM</span><span>CARRITO DE SHOTS</span></div>
+            <div class="timeline-row"><span>12:00 AM</span><span>TORNAFIESTA (CHILAQUILES)</span></div>
+            <div class="timeline-row"><span>01:00 AM</span><span>AFTER</span></div>
+            <div class="timeline-row"><span>02:30 AM</span><span>FIN</span></div>
+            <div class="timeline-row"><span>02:30 AM</span><span>DESALOJO</span></div>
+        </article>
+    </main>
+
+    <aside class="recs-grid reveal-node">
+        <div class="rec-item"><strong>CLIMA Y PROTECCIÓN</strong><p>Le sugerimos encarecidamente tomar precauciones e ir abrigados ante el clima del lugar.</p></div>
+        <div class="rec-item"><strong>ACCESO ÚNICO</strong><p>Considere que el recinto cuenta con un solo acceso habilitado para la entrada.</p></div>
+        <div class="rec-item"><strong>VALET PARKING</strong><p>Servicio externo a HC, con costo adicional por auto.</p></div>
+        <div class="rec-item"><strong>ÁREAS DE FUMAR</strong><p>Recordamos que el consumo de tabaco está restringido exclusivamente a las áreas exteriores.</p></div>
+        <div class="rec-item"><strong>MENÚS ESPECIALES</strong><p>Si requiere menú vegano, vegetariano o por alergias, solicítelo directamente con el comité organizador.</p></div>
+        <div class="rec-item"><strong>KIT Y GUARDARROPA</strong><p>No hay servicio de guardarropa. El kit de graduado será entregado en la entrada.</p></div>
+    </aside>
+
+    <footer>
+        <h2 class="reveal-node">TEC METEPEC</h2>
+        <p class="reveal-node">GRADUACIÓN 2026</p>
+    </footer>
+
+    <script>
+        const audio = document.getElementById('gradAudio');
+        const btn = document.getElementById('music-btn');
+        function gestionarMusica() {
+            if (audio.paused) { audio.play(); btn.innerHTML = "🔊"; } 
+            else { audio.pause(); btn.innerHTML = "🔇"; }
+        }
+        document.body.addEventListener('click', () => {
+            if (audio.paused) { audio.play().then(() => { btn.innerHTML = "🔊"; }); }
+        }, { once: true });
+    </script>
+</body>
+</html>
