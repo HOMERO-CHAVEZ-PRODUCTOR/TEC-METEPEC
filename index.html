@@ -229,7 +229,7 @@
     </div>
 
     <audio id="gradAudio" loop preload="auto">
-        <source src="free fall.m4a" type="audio/mp4">
+        <source src="musica.mp3" type="audio/mpeg">
     </audio>
     <button id="music-btn" onclick="toggleMusic()">🔇</button>
 
@@ -310,11 +310,13 @@
 
     <script>
         const audio = document.getElementById('gradAudio');
+        
         function toggleMusic() {
             const btn = document.getElementById('music-btn');
             if (audio.paused) {
-                audio.play();
-                btn.innerHTML = "🔊";
+                audio.play().then(() => {
+                    btn.innerHTML = "🔊";
+                }).catch(err => console.log("Error de reproducción: ", err));
             } else {
                 audio.pause();
                 btn.innerHTML = "🔇";
