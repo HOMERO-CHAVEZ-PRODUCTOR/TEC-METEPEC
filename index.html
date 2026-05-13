@@ -18,11 +18,7 @@
         }
 
         /* --- ARQUITECTURA BASE --- */
-        * { 
-            margin: 0; 
-            padding: 0; 
-            box-sizing: border-box; 
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body { 
             background: linear-gradient(180deg, var(--bg-black) 0%, var(--bg-gray) 69%);
@@ -39,10 +35,7 @@
         body::before {
             content: '';
             position: fixed;
-            top: 0; 
-            left: 0; 
-            width: 100%; 
-            height: 100%;
+            top: 0; left: 0; width: 100%; height: 100%;
             background-image: url('back.jpg');
             background-size: cover;
             background-position: center;
@@ -53,10 +46,7 @@
         /* --- TRAZADOS DECORATIVOS --- */
         .decor-layer {
             position: fixed;
-            top: 0; 
-            left: 0; 
-            width: 100%; 
-            height: 100%;
+            top: 0; left: 0; width: 100%; height: 100%;
             pointer-events: none;
             z-index: -1;
             overflow: hidden;
@@ -76,29 +66,10 @@
             border-radius: 300px; 
         }
 
-        .pos-1 { 
-            top: 10%; 
-            left: -50px; 
-            transform: rotate(15deg); 
-        }
-
-        .pos-2 { 
-            top: 40%; 
-            right: -100px; 
-            transform: rotate(-20deg); 
-        }
-
-        .pos-3 { 
-            bottom: 15%; 
-            left: 15%; 
-            transform: rotate(45deg); 
-        }
-
-        .pos-4 { 
-            top: 70%; 
-            left: 60%; 
-            transform: rotate(-10deg); 
-        }
+        .pos-1 { top: 10%; left: -50px; transform: rotate(15deg); }
+        .pos-2 { top: 40%; right: -100px; transform: rotate(-20deg); }
+        .pos-3 { bottom: 15%; left: 15%; transform: rotate(45deg); }
+        .pos-4 { top: 70%; left: 60%; transform: rotate(-10deg); }
 
         /* --- TIPOGRAFÍA --- */
         h1, h2, h3 {
@@ -111,20 +82,10 @@
 
         /* --- ANIMACIONES --- */
         @keyframes reveal {
-            from { 
-                opacity: 0; 
-                transform: translateY(40px); 
-            }
-            to { 
-                opacity: 1; 
-                transform: translateY(0); 
-            }
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-
-        .reveal-node { 
-            opacity: 0; 
-            animation: reveal 1.5s ease forwards; 
-        }
+        .reveal-node { opacity: 0; animation: reveal 1.5s ease forwards; }
 
         /* --- PORTADA --- */
         header {
@@ -139,41 +100,15 @@
 
         .hero-vignette {
             position: absolute;
-            top: 0; 
-            left: 0; 
-            width: 100%; 
-            height: 100%;
+            top: 0; left: 0; width: 100%; height: 100%;
             background: radial-gradient(circle, transparent 20%, var(--bg-black) 100%);
             z-index: 1;
         }
 
-        header div:last-child { 
-            position: relative; 
-            z-index: 10; 
-            max-width: 900px; 
-        }
-
-        header h1 { 
-            font-size: clamp(2.5rem, 9vw, 4.8rem); 
-            margin-bottom: 5px; 
-        }
-
-        header p { 
-            font-size: 1.1rem; 
-            letter-spacing: 10px; 
-            color: var(--silver-text); 
-            font-weight: 300; 
-            margin-top: 20px; 
-        }
-
-        header hr { 
-            width: 100px; 
-            height: 1px; 
-            border: none; 
-            background: var(--ivory); 
-            margin: 30px auto; 
-            opacity: 0.5; 
-        }
+        header div:last-child { position: relative; z-index: 10; max-width: 900px; }
+        header h1 { font-size: clamp(2.5rem, 9vw, 4.8rem); margin-bottom: 5px; }
+        header p { font-size: 1.1rem; letter-spacing: 10px; color: var(--silver-text); font-weight: 300; margin-top: 20px; }
+        header hr { width: 100px; height: 1px; border: none; background: var(--ivory); margin: 30px auto; opacity: 0.5; }
 
         /* --- CONTENIDO PRINCIPAL --- */
         main {
@@ -206,17 +141,8 @@
             max-width: 850px;
             margin: 0 auto 130px;
         }
-
-        .location-box h3 { 
-            font-size: 2.4rem; 
-            margin-bottom: 20px; 
-        }
-
-        .location-box p { 
-            font-size: 1.2rem; 
-            margin-bottom: 45px; 
-            color: var(--silver-text); 
-        }
+        .location-box h3 { font-size: 2.4rem; margin-bottom: 20px; }
+        .location-box p { font-size: 1.2rem; margin-bottom: 45px; color: var(--silver-text); }
 
         .btn-ivory {
             display: inline-block;
@@ -229,11 +155,7 @@
             letter-spacing: 4px;
             transition: var(--transition-smooth);
         }
-
-        .btn-ivory:hover { 
-            background: var(--ivory); 
-            color: var(--bg-black); 
-        }
+        .btn-ivory:hover { background: var(--ivory); color: var(--bg-black); }
 
         /* --- ITINERARIO UNIFORME --- */
         .timeline-container {
@@ -241,12 +163,7 @@
             margin: 140px auto;
             padding: 0 20px;
         }
-
-        .timeline-container h3 { 
-            font-size: 2.8rem; 
-            margin-bottom: 80px; 
-            text-align: center; 
-        }
+        .timeline-container h3 { font-size: 2.8rem; margin-bottom: 80px; text-align: center; }
 
         .timeline-row {
             display: flex;
@@ -263,13 +180,7 @@
             text-align: left; 
             font-family: 'Alata', sans-serif;
         }
-
-        .timeline-row span:last-child { 
-            text-align: right; 
-            font-weight: 300; 
-            font-size: 1.1rem; 
-            color: var(--white); 
-        }
+        .timeline-row span:last-child { text-align: right; font-weight: 300; font-size: 1.1rem; color: var(--white); }
 
         /* --- RECOMENDACIONES --- */
         .recs-grid {
@@ -287,97 +198,47 @@
             border: 1px solid rgba(254, 255, 227, 0.1);
             text-align: left;
         }
-
-        .rec-item strong { 
-            display: block; 
-            margin-bottom: 15px; 
-            font-family: 'Alata', sans-serif; 
-            text-transform: uppercase; 
-            font-size: 1.1rem; 
-            color: var(--ivory); 
-        }
-
-        .rec-item p { 
-            font-size: 0.95rem; 
-            font-weight: 300; 
-            color: var(--silver-text); 
-        }
+        .rec-item strong { display: block; margin-bottom: 15px; font-family: 'Alata', sans-serif; text-transform: uppercase; font-size: 1.1rem; color: var(--ivory); }
+        .rec-item p { font-size: 0.95rem; font-weight: 300; color: var(--silver-text); }
 
         /* --- AUDIO --- */
         #music-btn {
-            position: fixed; 
-            bottom: 40px; 
-            right: 40px; 
-            width: 75px; 
-            height: 75px;
-            border-radius: 50%; 
-            z-index: 5000; 
-            border: 1px solid var(--ivory);
-            background: rgba(0, 0, 0, 0.8); 
-            cursor: pointer;
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            font-size: 1.8rem;
-            transition: var(--transition-smooth); 
-            color: var(--ivory);
+            position: fixed; bottom: 40px; right: 40px; width: 75px; height: 75px;
+            border-radius: 50%; z-index: 5000; border: 1px solid var(--ivory);
+            background: rgba(0, 0, 0, 0.8); cursor: pointer;
+            display: flex; align-items: center; justify-content: center; font-size: 1.8rem;
+            transition: var(--transition-smooth); color: var(--ivory);
             backdrop-filter: blur(8px);
         }
 
-        #music-btn:hover { 
-            transform: scale(1.1); 
-            border-color: var(--white); 
-        }
-
-        footer { 
-            padding: 120px 20px; 
-            text-align: center; 
-            border-top: 1px solid rgba(254, 255, 227, 0.05); 
-        }
+        footer { padding: 120px 20px; text-align: center; border-top: 1px solid rgba(254, 255, 227, 0.05); }
 
         @media (max-width: 768px) {
-            .date-display { 
-                gap: 20px; 
-                padding: 25px 40px; 
-            }
-            .square-pair { 
-                display: none; 
-            }
+            .date-display { gap: 20px; padding: 25px 40px; }
+            .square-pair { display: none; }
         }
     </style>
 </head>
 <body>
 
     <div class="decor-layer">
-        <div class="square-pair pos-1">
-            <div class="rounded-square"></div>
-            <div class="rounded-square"></div>
-        </div>
-        <div class="square-pair pos-2">
-            <div class="rounded-square"></div>
-            <div class="rounded-square"></div>
-        </div>
-        <div class="square-pair pos-3">
-            <div class="rounded-square"></div>
-            <div class="rounded-square"></div>
-        </div>
-        <div class="square-pair pos-4">
-            <div class="rounded-square"></div>
-            <div class="rounded-square"></div>
-        </div>
+        <div class="square-pair pos-1"><div class="rounded-square"></div><div class="rounded-square"></div></div>
+        <div class="square-pair pos-2"><div class="rounded-square"></div><div class="rounded-square"></div></div>
+        <div class="square-pair pos-3"><div class="rounded-square"></div><div class="rounded-square"></div></div>
+        <div class="square-pair pos-4"><div class="rounded-square"></div><div class="rounded-square"></div></div>
     </div>
 
     <audio id="gradAudio" loop preload="auto">
         <source src="free fall.m4a" type="audio/mp4">
     </audio>
-    <button id="music-btn" onclick="gestionarMusica()">🔇</button>
+    <button id="music-btn" onclick="toggleMusic()">🔇</button>
 
     <header>
         <div class="hero-vignette"></div>
         <div class="reveal-node">
             <h1>TEC METEPEC</h1>
             <hr>
-            <p>GENERACIÓN 2023 - 2026</p>
+            <p>GENERACIÓN 2021 - 2026</p>
         </div>
     </header>
 
@@ -392,7 +253,7 @@
 
         <div class="location-box reveal-node">
             <h3>RECEPCIÓN</h3>
-            <p>Centro de Convenciones EDOMEX<br></p>
+            <p>Centro de Convenciones EDOMEX</p>
             <a href="https://www.google.com/maps/place/Centro+de+Convenciones+Edoméx/@19.3050301,-99.5615178,17z/data=!3m1!4b1!4m6!3m5!1s0x85d2756da892c647:0x1549ad2a2cd7b004!8m2!3d19.3050301!4d-99.5615178!16s%2Fg%2F11c1wwtnm0?entry=ttu&g_ep=EgoyMDI2MDUwNi4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="btn-ivory">Ver Ubicación</a>
         </div>
 
@@ -411,7 +272,7 @@
             <div class="timeline-row"><span>12:00 AM</span><span>TORNAFIESTA (CHILAQUILES)</span></div>
             <div class="timeline-row"><span>01:00 AM</span><span>AFTER</span></div>
             <div class="timeline-row"><span>02:30 AM</span><span>FIN</span></div>
-            <div class="timeline-row"><span>02:30 AM</span><span>DESALOJO (02:30 AM - 03:30 AM)</span></div>
+            <div class="timeline-row"><span>02:30 AM</span><span>DESALOJO</span></div>
         </article>
     </main>
 
@@ -449,24 +310,23 @@
 
     <script>
         const audio = document.getElementById('gradAudio');
-        const btn = document.getElementById('music-btn');
-
-        function gestionarMusica() {
-            if (audio.paused) { 
-                audio.play(); 
-                btn.innerHTML = "🔊"; 
-            } else { 
-                audio.pause(); 
-                btn.innerHTML = "🔇"; 
+        function toggleMusic() {
+            const btn = document.getElementById('music-btn');
+            if (audio.paused) {
+                audio.play();
+                btn.innerHTML = "🔊";
+            } else {
+                audio.pause();
+                btn.innerHTML = "🔇";
             }
         }
 
-        // Activación de la música al primer clic en la pantalla
+        // Lógica para que la música auto-reproduzca al primer toque en cualquier lado
         document.body.addEventListener('click', () => {
-            if (audio.paused) { 
-                audio.play().then(() => { 
-                    btn.innerHTML = "🔊"; 
-                }).catch(e => console.log("Esperando interacción del usuario...")); 
+            if (audio.paused) {
+                audio.play().then(() => {
+                    document.getElementById('music-btn').innerHTML = "🔊";
+                }).catch(err => console.log("Audio esperando interacción..."));
             }
         }, { once: true });
     </script>
